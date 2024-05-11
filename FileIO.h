@@ -3,11 +3,15 @@
 
 #include <iostream>
 #include <fstream>
+#include <queue>
 #include <string>
+#include <sstream>
 
 class FileIO {
   std::ifstream inFile;
   std::ofstream outFile;
+
+  void strToQueue(std::string, std::queue<int>*);
 
 public:
   FileIO() {};
@@ -19,7 +23,7 @@ public:
   void init(int, char **);
 
   // IN ---- OUT
-  bool getSequence(std::string*);
+  bool getSequence(std::queue<int>*);
   void printJolly(bool);
 
 };

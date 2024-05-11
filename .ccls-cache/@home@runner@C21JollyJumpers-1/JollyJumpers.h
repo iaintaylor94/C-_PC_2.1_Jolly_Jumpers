@@ -2,12 +2,15 @@
 #define _Jolly_Jumpers_H_
 
 #include <iostream>
+#include <string>
+#include <queue>
 
 #include "FileIO.h"
 
 class JollyJumpers {
-FileIO fileIO;
-std::string sequence;
+  FileIO fileIO;
+  
+  //int sequenceLength;
 
 public:
   // CONSTRUCTORS AND DESTRUCTORS
@@ -18,6 +21,8 @@ public:
   // FILE IO
   bool getSequence(void);
   void printJolly(bool);
+
+    std::queue<int> sequence;
 };
 
 

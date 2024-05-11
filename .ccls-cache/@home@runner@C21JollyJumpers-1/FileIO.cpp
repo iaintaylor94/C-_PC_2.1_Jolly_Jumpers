@@ -19,12 +19,23 @@ void FileIO::init(int argc, char **argv) {
   else std::cerr << "Opened " << fileName << std::endl;
 }
 
+void FileIO::strToQueue (std::string str, std::queue<int> *queue) {
+  std::stringstream ss(str);
+  std::string token;
+  while (ss >> token) {
+    queue->push(std::stoi(token));
+  }
+}
+bool FileIO::getSequence (std::queue<int> *queuePtr) {
+  std::string inStr;
+  std::getline(inFile, inStr);
 
-bool FileIO::getSequence (std::string* strPtr) {
-  std::getline(inFile, *strPtr);
-
-  if (strPtr->empty()) return false;
-  else return true;
+  if (inStr.empty()) 
+    return false;
+  else {
+    strToQueue (inStr, queuePtr);
+    return true;
+  }
 }
 void FileIO::printJolly (bool J) {
   if (J) {
