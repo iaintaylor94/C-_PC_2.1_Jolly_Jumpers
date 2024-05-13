@@ -33,3 +33,33 @@ void JollyJumpers::printSequence (void) {
 void JollyJumpers::printJolly (bool Jolly) {
   fileIO.printJolly(Jolly);
 }
+
+void JollyJumpers::fillDistance (void) {
+  // INIT DISTANCE
+  distance.clear();
+  for (int i = 0; i < sequence.size() - 1; i++) {
+    distance.push_back(false);
+  }
+
+  int first = 0;
+  int second = sequence.front(); sequence.pop();
+  
+  while (true) {
+    first = second;
+    second = sequence.front(); sequence.pop();
+
+    distance [abs(first - second)] = true;
+    
+    if (sequence.empty()) break;
+  }
+}
+bool JollyJumpers::testJolly (void) {
+  for (auto it = distance.begin() + 1; it != distance.end(); it++) {
+    if (!*it) return false;
+  }
+  return true;
+}
+bool JollyJumpers::isJolly (void) {
+  fillDistance();
+  return testJolly();
+}

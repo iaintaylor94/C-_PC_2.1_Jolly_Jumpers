@@ -4,13 +4,21 @@
 #include <iostream>
 #include <string>
 #include <queue>
+#include <cstdlib>
+#include <algorithm>
 
 #include "FileIO.h"
 
 class JollyJumpers {
+  // FILE IO
   FileIO fileIO;
   std::queue<int> sequence;
-  //int sequenceLength;
+
+  // PROCESS JOLLY SEQUENCE
+  std::vector<bool> distance;
+  void fillDistance (void);
+  bool testJolly (void);
+  
 
 public:
   // CONSTRUCTORS AND DESTRUCTORS
@@ -22,6 +30,9 @@ public:
   bool getSequence(void);
   void printSequence(void);
   void printJolly(bool);
+
+  // PROCESS JOLLY SEQUENCE
+    bool isJolly (void);
 
 };
 

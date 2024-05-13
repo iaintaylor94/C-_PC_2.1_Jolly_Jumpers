@@ -8,9 +8,9 @@ int main(int argc, char **argv) {
 
   while (jollyJumpers.getSequence()) {
     jollyJumpers.printSequence();
-    
-    jollyJumpers.printJolly(true);
-    jollyJumpers.printJolly(false);
+
+    if (jollyJumpers.isJolly()) jollyJumpers.printJolly(true);
+    else jollyJumpers.printJolly(false);
   }
 
   return 0;
