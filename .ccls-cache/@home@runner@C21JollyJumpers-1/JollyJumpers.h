@@ -9,7 +9,7 @@
 
 class JollyJumpers {
   FileIO fileIO;
-  
+  std::queue<int> sequence;
   //int sequenceLength;
 
 public:
@@ -20,9 +20,9 @@ public:
 
   // FILE IO
   bool getSequence(void);
+  void printSequence(void);
   void printJolly(bool);
 
-    std::queue<int> sequence;
 };
 
 
